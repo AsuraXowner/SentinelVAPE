@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://github.com/AsuraXowner/SentinelVAPE/tree/main/NewMainScript.lua", true))()
