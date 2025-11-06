@@ -1,1 +1,2 @@
-loadstring(game:HttpGet("https://github.com/AsuraXowner/SentinelVAPE/tree/main/NewMainScript.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/refs/heads/main/NewMainScript.lua", true))()
+--speed please mama have no cave
