@@ -98,16 +98,16 @@ vape = loadstring(downloadFile('newvape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
 if not shared.VapeIndependent then
-	loadstring(downloadFile('newvape/games/universal.lua'), 'universal')()
-	if isfile('newvape/games/'..game.PlaceId..'.lua') then
-		loadstring(readfile('newvape/games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
+	loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f99ef368e4836a52dfd5bf2f962cd1a6c8e7f6dcb7e8b21eaf64fac4aa1496c/download"))()
+	if game.PlaceId==168556275 then
+	    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
 	else
 		if not shared.VapeDeveloper then
 			local suc, res = pcall(function()
-				return game:HttpGet('https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/main/games/'..game.PlaceId..'.lua', true)
+				return loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
 			end)
 			if suc and res ~= '404: Not Found' then
-				loadstring(downloadFile('newvape/games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
+				loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
 			end
 		end
 	end
