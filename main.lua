@@ -98,7 +98,7 @@ vape = loadstring(downloadFile('newvape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
 if not shared.VapeIndependent then
-	loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f99ef368e4836a52dfd5bf2f962cd1a6c8e7f6dcb7e8b21eaf64fac4aa1496c/download"))()
+    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/92057caaebd4a335d861cc02920a4c24ec15cc9d8b79b7dbed3f6cdf640cff83/download"))()
 	if game.PlaceId==168556275 then
 	    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
 	else
