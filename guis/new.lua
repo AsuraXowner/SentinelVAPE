@@ -1,4 +1,5 @@
-local mainapi = {--will change soon
+--This watermark is used to delete the file if its cached, remove it to make the file persist after vape updates.
+local mainapi = {
 	Categories = {},
 	GUIColor = {
 		Hue = 0.46,
@@ -22,7 +23,7 @@ local mainapi = {--will change soon
 	Version = '4.18',
 	Windows = {}
 }
-
+--gng can we stop skiding and start pasting
 local cloneref = cloneref or function(obj)
 	return obj
 end
@@ -90,10 +91,8 @@ local getcustomassets = {
 	['newvape/assets/new/guiv4.png'] = 'rbxassetid://14368322199',
 	['newvape/assets/new/guivape.png'] = 'rbxassetid://14657521312',
 	['newvape/assets/new/info.png'] = 'rbxassetid://14368324807',
-	['newvape/assets/new/inventoryicon.png'] = 'rbxassetid://14928011633',
 	['newvape/assets/new/legit.png'] = 'rbxassetid://14425650534',
 	['newvape/assets/new/legittab.png'] = 'rbxassetid://14426740825',
-	['newvape/assets/new/miniicon.png'] = 'rbxassetid://14368326029',
 	['newvape/assets/new/notification.png'] = 'rbxassetid://16738721069',
 	['newvape/assets/new/overlaysicon.png'] = 'rbxassetid://14368339581',
 	['newvape/assets/new/overlaystab.png'] = 'rbxassetid://14397380433',
@@ -117,11 +116,12 @@ local getcustomassets = {
 	['newvape/assets/new/targetstab.png'] = 'rbxassetid://14497393895',
 	['newvape/assets/new/textguiicon.png'] = 'rbxassetid://14368355456',
 	['newvape/assets/new/textv4.png'] = 'rbxassetid://14368357095',
-	['newvape/assets/new/textvape.png'] = 'rbxassetid://14368358200',
+	['newvape/assets/new/textsentinel.png'] = 'rbxassetid://14368358200',
 	['newvape/assets/new/utilityicon.png'] = 'rbxassetid://14368359107',
 	['newvape/assets/new/vape.png'] = 'rbxassetid://14373395239',
 	['newvape/assets/new/warning.png'] = 'rbxassetid://14368361552',
-	['newvape/assets/new/worldicon.png'] = 'rbxassetid://14368362492'
+	['newvape/assets/new/worldicon.png'] = 'rbxassetid://14368362492',
+	['newvape/assets/new/sentinel.png'] = 'rbxassetid://14368362492'
 }
 
 local isfile = isfile or function(file)
@@ -251,21 +251,293 @@ local function checkKeybinds(compare, target, key)
 	return false
 end
 
+--so ok so so so so this was made in rush and i didnt never update it i mean if it works it works
+local Download = false
+local Number = 0
+local VapeLoaded = false
+local LastText = ""
+local TextLabel = Instance.new("TextLabel")
+local function Startvape(Mode,v)
+	local function dragUI(frame)
+	local dragging = false
+	local dragStart = Vector2.new(0, 0)
+	local startPos = UDim2.new()
+	local delta = Vector2.new()
+	local connection
+
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = Vector2.new(input.Position.X, input.Position.Y)
+			startPos = frame.Position
+
+			if connection then connection:Disconnect() end
+			connection = runService.RenderStepped:Connect(function()
+				if dragging then
+					local currentPos = inputService:GetMouseLocation()
+					delta = currentPos - dragStart
+					local newX = startPos.X.Offset + delta.X
+					local newPosition = UDim2.new(
+						startPos.X.Scale,
+						startPos.X.Offset + delta.X,
+						startPos.Y.Scale - 0.055,
+						startPos.Y.Offset + delta.Y
+					)
+					frame.Position = frame.Position:Lerp(newPosition, 0.1)
+				end
+			end)
+			local function stopDrag()
+				if dragging then
+					dragging = false
+					if connection then
+						connection:Disconnect()
+						connection = nil
+					end
+				end
+			end
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					stopDrag()
+				end
+			end)
+
+			frame.InputEnded:Connect(function(endInput)
+				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
+					stopDrag()
+				end
+			end)
+		end
+	end)
+end
+local VapeGUI = Instance.new("ScreenGui")
+local UIGradient = Instance.new("UIGradient")
+local Frame = Instance.new("Frame")
+local UIScale = Instance.new("UIScale")
+local UICorner = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local TopFrame = Instance.new("Frame")
+local CloseButton = Instance.new("ImageButton")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local UIPadding = Instance.new("UIPadding")
+local BottomFrame = Instance.new("Frame")
+local LoadFolder = Instance.new("Folder")
+local Frame = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local Frame_3 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Preview = Instance.new("Folder")
+local VapeImage = Instance.new("ImageLabel")
+local VapeLogo = Instance.new("ImageLabel")
+local CanvasGroup = Instance.new("CanvasGroup")
+local Texts = Instance.new("Folder")
+
+VapeGUI.Name = "VapeGUI"
+VapeGUI.Parent = cloneref(game:GetService('CoreGui'))
+VapeGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = VapeGUI
+Frame.Name = "LoadVAPE"
+Frame.BackgroundTransparency = 1
+Frame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.114666663, 0, 0.223439217, 0)
+Frame.Size = UDim2.new(0, 951, 0, 560)
+
+UIScale.Parent = Frame
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = Frame
+
+CanvasGroup.Name = "CanvasGroup"
+CanvasGroup.BackgroundTransparency = 1
+CanvasGroup.GroupTransparency = 1
+CanvasGroup.Parent = Frame
+CanvasGroup.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CanvasGroup.BorderSizePixel = 0
+CanvasGroup.Position = UDim2.new(0, 0,0, 0)
+CanvasGroup.Size = UDim2.new(0, 951,0, 560)
+
+UIListLayout.Parent = CanvasGroup
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+TopFrame.Name = "TopFrame"
+TopFrame.Parent = CanvasGroup
+TopFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TopFrame.BackgroundTransparency = 1.000
+TopFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopFrame.BorderSizePixel = 0
+TopFrame.Size = UDim2.new(0, 951, 0, 81)
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = TopFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.978517711, 0, 0.271604925, 0)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.AutoButtonColor = false
+CloseButton.Image = "rbxassetid://2777727756"
+CloseButton.ImageTransparency = 0.700
+
+UIListLayout_2.Parent = TopFrame
+UIListLayout_2.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_2.Padding = UDim.new(0, 20)
+
+UIPadding.Parent = TopFrame
+UIPadding.PaddingBottom = UDim.new(0, 15)
+UIPadding.PaddingRight = UDim.new(0, 30)
+
+BottomFrame.Name = "BottomFrame"
+BottomFrame.Parent = CanvasGroup
+BottomFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BottomFrame.BackgroundTransparency = 1.000
+BottomFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BottomFrame.BorderSizePixel = 0
+BottomFrame.Position = UDim2.new(0, 0, 0.14464286, 0)
+BottomFrame.Size = UDim2.new(0, 951, 0, 479)
+
+LoadFolder.Name = "LoadFolder"
+LoadFolder.Parent = BottomFrame
+
+Frame_2.Parent = LoadFolder
+Frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.ClipsDescendants = true
+Frame_2.Position = UDim2.new(0.316508949, 0, 0.647826076, 0)
+Frame_2.Size = UDim2.new(0, 348, 0, 8)
+
+UICorner_2.CornerRadius = UDim.new(1, 0)
+UICorner_2.Parent = Frame_2
+
+Frame_3.Parent = Frame_2
+Frame_3.BackgroundColor3 = Color3.fromRGB(64, 120, 85)
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.Size = UDim2.new(0, 0, 0, 8)
+
+UICorner_3.CornerRadius = UDim.new(1, 0)
+UICorner_3.Parent = Frame_3
+
+Texts.Name = "Texts"
+Texts.Parent = LoadFolder
+
+TextLabel.Parent = Texts
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.316508949, 0, 0.594989538, 0)
+TextLabel.Size = UDim2.new(0, 348, 0, 25)
+TextLabel.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+TextLabel.Text = "Loading Vape"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+Preview.Name = "Preview"
+Preview.Parent = BottomFrame
+
+VapeImage.Name = "VapeImage"
+VapeImage.Parent = Preview
+VapeImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+VapeImage.BackgroundTransparency = 1.000
+VapeImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+VapeImage.BorderSizePixel = 0
+VapeImage.Image = getcustomasset('newvape/assets/new/textvape.png') or ""
+VapeImage.Position = UDim2.new(0.375394315, 0, 0.263043493, 0)
+VapeImage.Size = UDim2.new(0, 152, 0, 40)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(89, 166, 114)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(100, 255, 89))}
+UIGradient.Parent = VapeImage
+
+VapeLogo.Name = "VapeLogo"
+VapeLogo.Parent = Preview
+VapeLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+VapeLogo.BackgroundTransparency = 1.000
+VapeLogo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+VapeLogo.BorderSizePixel = 0
+VapeLogo.Image = getcustomasset('newvape/assets/new/textv4.png') or ""
+VapeLogo.Position = UDim2.new(0.535226107, 0, 0.263043493, 0)
+VapeLogo.Size = UDim2.new(0, 52, 0, 38)
+
+dragUI(Frame)
+
+CloseButton.MouseButton1Click:Connect(function()
+VapeGUI.Enabled = false
+end)
+local info = TweenInfo.new(.8, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+tweenService:Create(Frame, info, { BackgroundTransparency = 0}):Play()
+tweenService:Create(CanvasGroup, info, { GroupTransparency = 0}):Play()
+if Mode == "Download" then
+TextLabel.Text = "Downloading "..v
+print("numbers to download: "..Number)
+task.wait(2)
+local attempts = 0
+task.spawn(function()
+	while true do
+		if TextLabel.Text == "Downloading "..LastText then
+			attempts += 1
+		else
+			attempts = 0
+		end
+		if attempts >= 3 then
+			task.wait(5)
+			TextLabel.Text = "Vape Loading"
+			tweenService:Create(Frame_3, TweenInfo.new(1, Enum.EasingStyle.Exponential), { Size = UDim2.new(1, 0, 0, 8)}):Play()
+task.wait(4)
+Frame_2.BackgroundTransparency = 1
+tweenService:Create(Frame_3, info, { Size = UDim2.new(0, 0,0, 8),Position = UDim2.new(0.503, 0,0.648, 0)}):Play()
+task.wait(1)
+tweenService:Create(Frame, info, { BackgroundTransparency = 1}):Play()
+tweenService:Create(CanvasGroup, info, { GroupTransparency = 1}):Play()
+task.wait(3)
+VapeGUI:Destroy()
+			break
+		end
+		local progressScale = math.clamp(Number / 20, 0, 1)
+		tweenService:Create(Frame_3, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), { Size = UDim2.new(progressScale, 0, 0, 8)}):Play()
+		task.wait(4)
+	end
+end)
+elseif Mode == "Error" then
+    TextLabel.Text = "Vape Failed Loading: "..v
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+	CloseButton.MouseButton1Click:Connect(function()
+        VapeGUI:Destroy()
+      end)
+else
+tweenService:Create(Frame_3, TweenInfo.new(8, Enum.EasingStyle.Exponential), { Size = UDim2.new(1, 0, 0, 8)}):Play()
+task.wait(7)
+TextLabel.Text = "Loaded Vape"
+Frame_2.BackgroundTransparency = 1
+tweenService:Create(Frame_3, info, { Size = UDim2.new(0, 0,0, 8),Position = UDim2.new(0.503, 0,0.648, 0)}):Play()
+task.wait(1)
+tweenService:Create(Frame, info, { BackgroundTransparency = 1}):Play()
+tweenService:Create(CanvasGroup, info, { GroupTransparency = 1}):Play()
+task.wait(3)
+VapeGUI:Destroy()
+end
+end
 local function createDownloader(text)
 	if mainapi.Loaded ~= true then
 		local downloader = mainapi.Downloader
-		if not downloader then
-			downloader = Instance.new('TextLabel')
-			downloader.Size = UDim2.new(1, 0, 0, 40)
-			downloader.BackgroundTransparency = 1
-			downloader.TextStrokeTransparency = 0
-			downloader.TextSize = 20
-			downloader.TextColor3 = Color3.new(1, 1, 1)
-			downloader.FontFace = uipallet.Font
-			downloader.Parent = mainapi.gui
-			mainapi.Downloader = downloader
-		end
-		downloader.Text = 'Downloading '..text
+		Download=true
+		coroutine.wrap(function()
+			if not VapeLoaded then
+              VapeLoaded=true
+		       Startvape("Download",text)
+			end
+	    end)()
+		Number += 1
+		TextLabel.Text = "Downloading "..text
+		LastText = text
 	end
 end
 
@@ -317,7 +589,13 @@ local function downloadFile(path, func)
 			return game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/'..readfile('newvape/profiles/commit.txt')..'/'..select(1, path:gsub('newvape/', '')), true)
 		end)
 		if not suc or res == '404: Not Found' then
-			error(res)
+		coroutine.wrap(function()
+		 Startvape("Error",res)
+		 task.wait(5)
+		     TextLabel.Text = "Vape Failed Loading: "..res
+         TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+	    end)()
+		error(res)
 		end
 		if path:find('.lua') then
 			res = '--This watermark is used to delete the file if its cached, remove it to make the file persist after vape updates.\n'..res
@@ -2421,6 +2699,13 @@ components = {
 	end
 }
 
+coroutine.wrap(function()
+if not Download then
+Startvape()
+end
+end)()
+task.wait(4)
+
 mainapi.Components = setmetatable(components, {
 	__newindex = function(self, ind, func)
 		for _, v in mainapi.Modules do
@@ -4068,7 +4353,7 @@ function mainapi:CreateOverlay(categorysettings)
 		Type = 'Overlay',
 		Expanded = false,
 		Button = self.Overlays:CreateToggle({
-			Name = categorysettings.Name,
+		Name = categorysettings.Name,
 			Function = function(callback)
 				window.Visible = callback and (clickgui.Visible or categoryapi.Pinned)
 				if not callback then
@@ -5673,10 +5958,11 @@ local scarcitybanner = Instance.new('TextLabel')
 scarcitybanner.Size = UDim2.fromScale(1, 0.02)
 scarcitybanner.Position = UDim2.fromScale(0, 0.97)
 scarcitybanner.BackgroundTransparency = 1
-scarcitybanner.Text = 'A new discord has been created, click the discord icon to join.'
+scarcitybanner.Text = 'Sentinel on top'
 scarcitybanner.TextScaled = true
 scarcitybanner.TextColor3 = Color3.new(1, 1, 1)
 scarcitybanner.TextStrokeTransparency = 0.5
+scarcitybanner.TextTransparency = 0.5
 scarcitybanner.FontFace = uipallet.Font
 scarcitybanner.Parent = clickgui
 local modal = Instance.new('TextButton')
@@ -5788,14 +6074,9 @@ mainapi:CreateCategory({
 	Size = UDim2.fromOffset(14, 14)
 })
 mainapi:CreateCategory({
-	Name = 'Inventory',
-	Icon = getcustomasset('newvape/assets/new/inventoryicon.png'),
+	Name = 'Sentinel',
+	Icon = getcustomasset('newvape/assets/new/sentinel.png'),
 	Size = UDim2.fromOffset(15, 14)
-})
-mainapi:CreateCategory({
-	Name = 'Minigames',
-	Icon = getcustomasset('newvape/assets/new/miniicon.png'),
-	Size = UDim2.fromOffset(19, 12)
 })
 mainapi.Categories.Main:CreateDivider('misc')
 
@@ -6075,6 +6356,13 @@ guipane:CreateButton({
 	Tooltip = 'This will reset your GUI back to default'
 })
 guipane:CreateButton({
+	Name = 'Interface',
+	Function = function()
+		mainapi.gui.ScaledGui.LegitGUI.Visible = true
+	end,
+	Tooltip = 'This will reset your GUI back to default'
+})
+guipane:CreateButton({
 	Name = 'Sort GUI',
 	Function = function()
 		local priority = {
@@ -6084,10 +6372,9 @@ guipane:CreateButton({
 			RenderCategory = 4,
 			UtilityCategory = 5,
 			WorldCategory = 6,
-			InventoryCategory = 7,
-			MinigamesCategory = 8,
-			FriendsCategory = 9,
-			ProfilesCategory = 10
+			SentinelCategory = 7,
+			FriendsCategory = 8,
+			ProfilesCategory = 9
 		}
 		local categories = {}
 		for _, v in mainapi.Categories do
@@ -6352,13 +6639,13 @@ textguicolorcustom = textgui:CreateColorSlider({
 local VapeLabels = {}
 local VapeLogo = Instance.new('ImageLabel')
 VapeLogo.Name = 'Logo'
-VapeLogo.Size = UDim2.fromOffset(80, 21)
-VapeLogo.Position = UDim2.new(1, -142, 0, 3)
+VapeLogo.Size = UDim2.fromOffset(120, 30)
+VapeLogo.Position = UDim2.new(1, -123, 0, 105)
 VapeLogo.BackgroundTransparency = 1
 VapeLogo.BorderSizePixel = 0
 VapeLogo.Visible = false
 VapeLogo.BackgroundColor3 = Color3.new()
-VapeLogo.Image = getcustomasset('newvape/assets/new/textvape.png')
+VapeLogo.Image = getcustomasset('newvape/assets/new/textsentinel.png')
 VapeLogo.Parent = textgui.Children
 
 local lastside = textgui.Children.AbsolutePosition.X > (gui.AbsoluteSize.X / 2)
@@ -6380,6 +6667,7 @@ VapeLogoV4.Position = UDim2.new(1, 1, 0, 1)
 VapeLogoV4.BackgroundColor3 = Color3.new()
 VapeLogoV4.BackgroundTransparency = 1
 VapeLogoV4.BorderSizePixel = 0
+VapeLogoV4.Visible = false
 VapeLogoV4.Image = getcustomasset('newvape/assets/new/textv4.png')
 VapeLogoV4.Parent = VapeLogo
 local VapeLogoShadow = VapeLogo:Clone()
@@ -6730,6 +7018,7 @@ function mainapi:UpdateTextGUI(afterload)
 			if v.Enabled or table.find(found, i) then
 				local holder = Instance.new('Frame')
 				holder.Name = i
+                holder.Position = UDim2.new(0, 3, 0, 84)
 				holder.Size = UDim2.fromOffset()
 				holder.BackgroundTransparency = 1
 				holder.ClipsDescendants = true
@@ -7008,3 +7297,4 @@ mainapi:Clean(inputService.InputEnded:Connect(function(inputObj)
 end))
 
 return mainapi
+
