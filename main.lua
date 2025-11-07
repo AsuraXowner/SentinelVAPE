@@ -98,18 +98,10 @@ vape = loadstring(downloadFile('newvape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
 if not shared.VapeIndependent then
-    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/92057caaebd4a335d861cc02920a4c24ec15cc9d8b79b7dbed3f6cdf640cff83/download"))()
 	if game.PlaceId==168556275 then
-	    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
+	     loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/92057caaebd4a335d861cc02920a4c24ec15cc9d8b79b7dbed3f6cdf640cff83/download"))()
 	else
-		if not shared.VapeDeveloper then
-			local suc, res = pcall(function()
-				return loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
-			end)
-			if suc and res ~= '404: Not Found' then
-				loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/6257a1385ef8d682a2c0e892682dcfeba4221f21cf989fbfc3a693a212c86d60/download"))()
-			end
-		end
+		vape:CreateNotification('Vape', 'Failed to Load Universal not supported', 30, 'alert')
 	end
 	finishLoading()
 else
