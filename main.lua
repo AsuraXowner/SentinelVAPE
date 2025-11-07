@@ -99,7 +99,7 @@ shared.vape = vape
 
 if not shared.VapeIndependent then
 	if game.PlaceId==168556275 then
-	     loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/92057caaebd4a335d861cc02920a4c24ec15cc9d8b79b7dbed3f6cdf640cff83/download"))()
+	    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/ede545d7d6734a37c80b89e82b5ed44a78530d00420fa0a48ff0931615d4752b/download"))()
 	else
 		vape:CreateNotification('Vape', 'Failed to Load Universal not supported', 30, 'alert')
 	end
