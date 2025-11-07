@@ -34,6 +34,8 @@ local guiService = cloneref(game:GetService('GuiService'))
 local runService = cloneref(game:GetService('RunService'))
 local httpService = cloneref(game:GetService('HttpService'))
 
+local GradientAPI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/Sentinel/refs/heads/main/Dependencies/ColorAPI"))()
+
 local fontsize = Instance.new('GetTextBoundsParams')
 fontsize.Width = math.huge
 local notifications
@@ -5964,6 +5966,19 @@ scarcitybanner.TextStrokeTransparency = 0.5
 scarcitybanner.TextTransparency = 0.5
 scarcitybanner.FontFace = uipallet.Font
 scarcitybanner.Parent = clickgui
+
+GradientAPI:CreateGradient({
+	Object = scarcitybanner,
+	Colors = {
+		Main = Color3.fromRGB(45, 173, 198),
+		Secondary = Color3.fromRGB(78, 137, 173),
+		Third = Color3.fromRGB(255, 255, 255)
+	},
+	Mode = "fade",
+	Direction = "LeftToRight",
+	Speed = 1,
+})
+
 local modal = Instance.new('TextButton')
 modal.BackgroundTransparency = 1
 modal.Modal = true
