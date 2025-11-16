@@ -5,6 +5,10 @@ local isfile = isfile or function(file)
 	return suc and res ~= nil and res ~= ''
 end
 
+if not isfile("newvape/profiles/SentinelInstalled.cfg") and delfolder then
+    delfolder("newvape")--deletes old vape stuff
+end
+
 local delfile = delfile or function(file)
 	writefile(file, '')
 end
