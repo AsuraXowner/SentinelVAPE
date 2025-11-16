@@ -36,6 +36,8 @@ local httpService = cloneref(game:GetService('HttpService'))
 
 local GradientAPI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/Sentinel/refs/heads/main/Dependencies/ColorAPI"))()
 
+writefile('newvape/profiles/Sentinel.cfg','installed')
+
 local fontsize = Instance.new('GetTextBoundsParams')
 fontsize.Width = math.huge
 local notifications
