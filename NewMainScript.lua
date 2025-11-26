@@ -5,7 +5,7 @@ local isfile = isfile or function(file)
 	return suc and res ~= nil and res ~= ''
 end
 
-if not isfile("newvape/profiles/SentinelInstalled.cfg") and delfolder then
+if not isfile("newvape/profiles/SentinelInstalled.cfg") then
     delfolder("newvape")--deletes old vape stuff
 end
 
