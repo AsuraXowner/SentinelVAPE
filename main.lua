@@ -98,6 +98,7 @@ vape = loadstring(downloadFile('newvape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
 if not shared.VapeIndependent then
+	vape:CreateNotification('Vape', 'Keyless mode for holiday enjoy!', 10, 'info')
 	if game.PlaceId==286090429 then
 	    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/ede545d7d6734a37c80b89e82b5ed44a78530d00420fa0a48ff0931615d4752b/download"))()
 	elseif game.PlaceId==17625359962 then
