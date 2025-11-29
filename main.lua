@@ -3,6 +3,7 @@ repeat task.wait() until game:IsLoaded()
 if shared.vape then shared.vape:Uninject() end
 
 getgenv().VapeLoaded = getgenv().VapeLoaded or false
+getgenv().VapeGameLoaded = getgenv().VapeGameLoaded or false
 
 if identifyexecutor then
 	if table.find({'Argon', 'Wave'}, ({identifyexecutor()})[1]) then
@@ -104,20 +105,22 @@ vape = loadstring(downloadFile("newvape/guis/"..gui..".lua"), "gui")()
 shared.vape = vape
 
 if not shared.VapeIndependent then
-	--if game.PlaceId == 286090429 then
-		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/ede545d7d6734a37c80b89e82b5ed44a78530d00420fa0a48ff0931615d4752b/download"))()
-	--elseif game.PlaceId == 17625359962 then
-		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/9cf565b6746d66cda10c26de28695dcf3407c88e7aa4eed0421f5d1c27860812/download"))()
-	--elseif game.PlaceId == 301549746 or game.PlaceId == 1480424328 or game.PlaceId == 1869597719 then
-		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/55196de3700ccd12251b6da7fd669fe4e4cebce53a4ef87d1d6282cf64f750cb/download"))()
-	--else
-		--vape:CreateNotification("Vape", "Unsupported Game script will run on universal mode", 10, "warning")
-	vape:CreateNotification("Vape", "Failed to Load Services are down rn we will be back soon!", 30, "alert")
-		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/87e61dff389ed0dcd925720f380a0f4b3eb4a349de97a7cce3562b8ef3841009/download"))()
-	--end
+    loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/87e61dff389ed0dcd925720f380a0f4b3eb4a349de97a7cce3562b8ef3841009/download"))()
+
+    if game.PlaceId == 286090429 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/refs/heads/main/games/Arsenal.lua"))()
+	elseif game.PlaceId == 17625359962 or game.PlaceId==117398147513099 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/refs/heads/main/games/Rivals.lua"))()
+	elseif game.PlaceId == 301549746 or game.PlaceId == 1480424328 or game.PlaceId == 1869597719 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/refs/heads/main/games/CounterBlox.lua"))()
+	else
+		vape:CreateNotification("Vape", "Unsupported Game script will run on universal mode", 10, "warning")
+	    getgenv().VapeGameLoaded = true
+    end
 
 	task.spawn(function()
 		repeat task.wait() until getgenv().VapeLoaded == true
+        repeat task.wait() until getgenv().VapeGameLoaded == true
 		finishLoading()
 	end)
 
