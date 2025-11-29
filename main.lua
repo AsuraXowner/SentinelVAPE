@@ -112,7 +112,7 @@ if not shared.VapeIndependent then
 		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/55196de3700ccd12251b6da7fd669fe4e4cebce53a4ef87d1d6282cf64f750cb/download"))()
 	--else
 		--vape:CreateNotification("Vape", "Unsupported Game script will run on universal mode", 10, "warning")
-	vape:CreateNotification("Vape", "Failed to Load Services are down rn we will be back soon!", 30, "error")
+	vape:CreateNotification("Vape", "Failed to Load Services are down rn we will be back soon!", 30, "alert")
 		--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/87e61dff389ed0dcd925720f380a0f4b3eb4a349de97a7cce3562b8ef3841009/download"))()
 	--end
 
