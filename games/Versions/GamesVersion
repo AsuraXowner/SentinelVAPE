@@ -1,1 +1,20 @@
+local VersionChecker = {}
+local Versions = {
+    [286090429] = 0.48,
+    [17625359962] = 0.14,
+    [301549746] = 0.36,
+    [1869597719] = 0.36,
+    [1480424328] = 0.36,
+    ["universal"] = 1.00,
+}
+function VersionChecker.getRequiredVersion(placeId)
+    local required_version_number = Versions[placeId]
 
+    if required_version_number then
+        return tostring(required_version_number)
+    else
+        return nil
+    end
+end
+
+return VersionChecker
