@@ -9,6 +9,7 @@ return {
 		LastUpdated = "2026-01-15",
 		SupportedGames = {"Rivals"},
         SupportedGamesID = {"17625359962", "133215910299950", "129604661913557", "117398147513099", "71874690745115", "18126510175"},
+        ConfigID = "LuaXRivals",
 		Likes = 0,
 		Downloads = 1,
 		AffectedModules = {"SilentAim","TriggerBot","Desync","FastEquip","HitBoxes","Hitmarker Disabler","Hurt Effect Disabler","Chams","DevBadge","ESP","NameTags","Tracers","DeviceSpoofer","NoCameraShake","StaffDetector","ActiveBypassV1","Anti-AFK","Anime Pictures","CharacterOutlines","ChatTag","HandCustomizer","Unlockall"},
