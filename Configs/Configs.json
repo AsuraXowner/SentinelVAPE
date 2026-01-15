@@ -2,23 +2,17 @@
 
 return {
 	{
-		Title = "Rivals Config perfected autowin",
+		Title = "Rivals Config legit cheating",
 		Details = "Clean legit config for public servers.",
 		Creator = "LuaX",
-		Date = "2026-01-10",
-		LastUpdated = "2026-01-10",
-		SupportedGames = {"Rivals","Arsenal"},
+		Date = "2026-01-15",
+		LastUpdated = "2026-01-15",
+		SupportedGames = {"Rivals"},
         SupportedGamesID = {"17625359962","286090429"},
-		Likes = 18,
-		Downloads = 14,
+		Likes = 0,
+		Downloads = 0,
 		AffectedModules = {"AimAssist","SilentAim"},
 		Reviews = {
-			{
-				Username = "Player1",
-				Comment = "Great config!",
-				Date = "2026-01-10",
-				Liked = true,
-			},
 		},
 
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/LuaX"} 
@@ -27,17 +21,17 @@ return {
 		Title = "Gamerfoxy op config trust trust",
 		Details = "most brainrot config",
 		Creator = "GamerFoxy",
-		Date = "2026-01-14",
-		LastUpdated = "2026-01-14",
+		Date = "2026-01-15",
+		LastUpdated = "2026-01-15",
 		SupportedGames = {"Universal"},
 		AffectedModules = {"AimAssist","SilentAim"},
-		Likes = 8888,
-		Downloads = 15555,
+		Likes = 0,
+		Downloads = 0,
 		Reviews = {
 			{
 				Username = "LuaX",
 				Comment = "trash",
-				Date = "2026-01-12",
+				Date = "2026-01-15",
 				Liked = false,
 			},
 		},
