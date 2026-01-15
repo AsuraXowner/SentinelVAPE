@@ -8,34 +8,13 @@ return {
 		Date = "2026-01-15",
 		LastUpdated = "2026-01-15",
 		SupportedGames = {"Rivals"},
-        SupportedGamesID = {"17625359962","286090429"},
+        SupportedGamesID = {"17625359962", "133215910299950", "129604661913557", "117398147513099", "71874690745115", "18126510175"},
 		Likes = 0,
-		Downloads = 0,
-		AffectedModules = {"AimAssist","SilentAim"},
+		Downloads = 1,
+		AffectedModules = {"SilentAim","TriggerBot","Desync","FastEquip","HitBoxes","Hitmarker Disabler","Hurt Effect Disabler","Chams","DevBadge","ESP","NameTags","Tracers","DeviceSpoofer","NoCameraShake","StaffDetector","ActiveBypassV1","Anti-AFK","Anime Pictures","CharacterOutlines","ChatTag","HandCustomizer","Unlockall"},
 		Reviews = {
 		},
 
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/LuaX"} 
-	},
-	{
-		Title = "Gamerfoxy op config trust trust",
-		Details = "most brainrot config",
-		Creator = "GamerFoxy",
-		Date = "2026-01-15",
-		LastUpdated = "2026-01-15",
-		SupportedGames = {"Universal"},
-		AffectedModules = {"AimAssist","SilentAim"},
-		Likes = 0,
-		Downloads = 0,
-		Reviews = {
-			{
-				Username = "LuaX",
-				Comment = "trash",
-				Date = "2026-01-15",
-				Liked = false,
-			},
-		},
-
-		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy0"} 
-	},
+	}
 }
