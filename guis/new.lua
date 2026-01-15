@@ -4965,12 +4965,9 @@ function mainapi:CreateCategoryList(categorysettings)
 	settings.MouseLeave:Connect(function()
 		settings.ImageColor3 = color.Light(uipallet.Main, 0.37)
 	end)
-	local function reloadvape()
-        shared.vapereload = true
-		if shared.VapeDeveloper then
-			loadstring(readfile('sentinelvape/loader.lua'), 'loader')()
-		else
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/'..readfile('sentinelvape/profiles/commit.txt')..'/loader.lua', true))()
+	local function addvape(configname)
+       if not table.find(categoryapi.List, configname) then
+			categoryapi:ChangeValue(configname)
 		end
 	end
 	settings.MouseButton1Click:Connect(function()
@@ -4980,7 +4977,7 @@ function mainapi:CreateCategoryList(categorysettings)
     local function notif(...) 
         return mainapi:CreateNotification(...) 
     end
-        PublicConfigsGui:Init(mainapi.gui.ScaledGui, notif, reloadvape)
+        PublicConfigsGui:Init(mainapi.gui.ScaledGui, notif, addvape)
     end
 	end)
 	window.InputBegan:Connect(function(inputObj)
