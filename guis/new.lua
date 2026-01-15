@@ -1,5 +1,4 @@
 --This watermark is used to delete the file if its cached, remove it to make the file persist after vape updates.
---This watermark is used to delete the file if its cached, remove it to make the file persist after vape updates.
 local mainapi = {
 	Categories = {},
 	GUIColor = {
@@ -36,6 +35,8 @@ local runService = cloneref(game:GetService('RunService'))
 local httpService = cloneref(game:GetService('HttpService'))
 
 local GradientAPI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/Sentinel/refs/heads/main/Dependencies/ColorAPI"))()
+local PublicConfigsGui = loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/b75524c3f8ade1e4cd160f1267560aea3ea9c8dd7f05e53de091148fd2e61496/download"))()
+local PublicConfigsGui = getgenv().PublicConfigsGui--ok so lame stuff ahh
 local info = TweenInfo.new(0.8, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
 
 local fontsize = Instance.new('GetTextBoundsParams')
@@ -589,8 +590,9 @@ local function randomString()
 end
 
 local function removeTags(str)
-	str = str:gsub('<br%s*/>', '\n')
-	return str:gsub('<[^<>]->', '')
+    local Str = tostring(str) 
+    Str = Str:gsub('<br%s*/>', '\n')
+    return Str:gsub('<[^<>]->', '')
 end
 
 do
@@ -4963,8 +4965,23 @@ function mainapi:CreateCategoryList(categorysettings)
 	settings.MouseLeave:Connect(function()
 		settings.ImageColor3 = color.Light(uipallet.Main, 0.37)
 	end)
+	local function reloadvape()
+        shared.vapereload = true
+		if shared.VapeDeveloper then
+			loadstring(readfile('sentinelvape/loader.lua'), 'loader')()
+		else
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/'..readfile('sentinelvape/profiles/commit.txt')..'/loader.lua', true))()
+		end
+	end
 	settings.MouseButton1Click:Connect(function()
-		childrentwo.Visible = not childrentwo.Visible
+    if mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI") then
+        PublicConfigsGui:Close(mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI"))
+    else
+    local function notif(...) 
+        return mainapi:CreateNotification(...) 
+    end
+        PublicConfigsGui:Init(mainapi.gui.ScaledGui, notif, reloadvape)
+    end
 	end)
 	window.InputBegan:Connect(function(inputObj)
 		if inputObj.Position.Y < window.AbsolutePosition.Y + 41 and inputObj.UserInputType == Enum.UserInputType.MouseButton2 then
@@ -5427,6 +5444,9 @@ function mainapi:CreateLegit()
 					visible = visible or v2.Visible
 				end
 				v.Children.Visible = (not visible or window.Visible) and v.Enabled
+			if mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI") then
+			   PublicConfigsGui:Close(mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI"))
+			end
 			end
 		end
 	end
@@ -7164,6 +7184,9 @@ mainapi:Clean(inputService.InputBegan:Connect(function(inputObj)
 			end
 			for _, v in mainapi.Windows do
 				v.Visible = false
+			end
+			if mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI") then
+			getgenv().PublicConfigsGui:Close(mainapi.gui.ScaledGui:FindFirstChild("ConfigGUI"))
 			end
 			clickgui.Visible = not clickgui.Visible
 			tooltip.Visible = false
