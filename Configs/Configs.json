@@ -33,7 +33,22 @@ return {
 				Liked = false,
 			},
 		},
-
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/LuaX"} 
-	}
+	},
+	{
+		Title = "Blatant counterblox config",
+		Details = "vouch best config to destroy delta users",
+		Creator = "GamerFoxy",
+		Date = "2026-01-19",
+		LastUpdated = "2026-01-19",
+		SupportedGames = {"CounterBlox"},
+        SupportedGamesID = {301549746, 1480424328, 1869597719, 5325113759},
+        ConfigID = "GMCounterBloxBlatant",
+		Likes = 0,
+		Downloads = 0,
+		AffectedModules = {"DmgBoost","InfiniteAmmo","RapidFire","FullAuto","InstantEquip","InstantReload","NoSlowdown","NoSpread","SkinCustomizer","HandCustomizer","InfiniteMelee","Wallbang","MaxPenetration","KillAll", "AntiAim","Teleport","NoFallDamage","NoFireDamage","Buy","HitBoxes","RemoveEffects","ViewModel","ThirdPerson","FOV","KnifeGiver","KnifeBot","Bhop","BulletTrail","ShowEnemyMoney","Ragebot"},
+		Reviews = {
+		},
+		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
+	},
 }
