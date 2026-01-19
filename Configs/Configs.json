@@ -100,12 +100,12 @@ return {
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
 	},
 	{
-		Title = "RainWare V6 Blatant Bedwars Config OP Mobil Only",
+		Title = "RainWare V6 Blatant Bedwars Config OP Mobile Only",
 		Details = "Rainy Vape Getting Ready To Rape",
 		Creator = "Void2RealOnyt",
 		Date = "2026-01-19",
 		LastUpdated = "2026-01-19",
-		SupportedGames = {"Bedwars","MOBIL ONLY"},
+		SupportedGames = {"Bedwars","MOBILE ONLY"},
         SupportedGamesID = {6872274481},
         ConfigID = "RWV6Blatant",
 		Likes = 0,
