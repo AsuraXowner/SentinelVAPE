@@ -52,7 +52,7 @@ return {
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
 	},
 	{
-		Title = "BedwarsLobby Blatant Config [for sentinel]",
+		Title = "BedwarsLobby Blatant Config",
 		Details = "for lobby duh vro",
 		Creator = "GamerFoxy",
 		Date = "2026-01-19",
@@ -68,7 +68,7 @@ return {
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
 	},
 	{
-		Title = "Bedwars Blatant Config OP [for sentinel]",
+		Title = "Bedwars Blatant Config OP",
 		Details = "skibidi destroy voidware users",
 		Creator = "GamerFoxy",
 		Date = "2026-01-19",
@@ -93,10 +93,26 @@ return {
         SupportedGamesID = {286090429, 385792440, 391595633, 1069912173, 4646345676, 4690140579, 5133094040, 6318874810, 6361145282, 8412573470, 11810505137, 11828780714, 11924224825, 13496860531, 17228184384, 17584410630, 17680403936, 75194636531213, 79137385850056, 98283919607281, 112464274410705, 119778160910911, 123366595556261, 131309041033532},
         ConfigID = "GMArsenalBlatant",
 		Likes = 0,
-		Downloads = 2,
+		Downloads = 0,
 		AffectedModules = {"AnnouncerChanger","SkinChanger","MeleeChanger","DeviceSpoofer","KillEffects","SilentAimbot","CharacterOutlines","HandCustomizer","AnimePictures","Speed","NoReloadTime","TauntChanger","InfiniteAmmo","NoEquipTime","StaffDetector","AlwaysAuto","AntiRagdoll","NameTags","AutoRejoin","AlwaysCrit","DmgBoost","TriggerBot","NoSpread","RapidFire","HitBoxes","NoRecoil","AntiAFK","CamFOV","Tracers","AntiFall","Arrows","Chams","Phase","Health","Reach","ESP"},
 		Reviews = {
 		},
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
+	},
+	{
+		Title = "RainWare V6 Blatant Bedwars Config OP Mobil Only",
+		Details = "Rainy Vape Getting Ready To Rape",
+		Creator = "Void2RealOnyt",
+		Date = "2026-01-19",
+		LastUpdated = "2026-01-19",
+		SupportedGames = {"Bedwars","MOBIL ONLY"},
+        SupportedGamesID = {6872274481},
+        ConfigID = "RWV6Blatant",
+		Likes = 0,
+		Downloads = 0,
+		AffectedModules = {"CheaterDetector","RemoveStatus","TexturePackV3","AdventureExploit","ShopTierBypass","ProjectileAimbot","RainwareSky","AutoConsume","AutoVoidDrop","AutoShoot","AutoToxic","AimAssist","AutoPearl","AutoPlay","FastDrop","AutoTool","HitBoxes","AutoBuy","Anti-AFK","ChatTag","Breaker","Velocity","BedESP","Tracers","Killaura","Arrows","AntiFall","Chams","Health","NoFall","Reach","Sprint","ESP"},
+		Reviews = {
+		},
+		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/Void2RealOnyt"} 
 	},
 }
