@@ -45,8 +45,40 @@ return {
         SupportedGamesID = {301549746, 1480424328, 1869597719, 5325113759},
         ConfigID = "GMCounterBloxBlatant",
 		Likes = 0,
-		Downloads = 0,
+		Downloads = 2,
 		AffectedModules = {"DmgBoost","InfiniteAmmo","RapidFire","FullAuto","InstantEquip","InstantReload","NoSlowdown","NoSpread","SkinCustomizer","HandCustomizer","InfiniteMelee","Wallbang","MaxPenetration","KillAll", "AntiAim","Teleport","NoFallDamage","NoFireDamage","Buy","HitBoxes","RemoveEffects","ViewModel","ThirdPerson","FOV","KnifeGiver","KnifeBot","Bhop","BulletTrail","ShowEnemyMoney","Ragebot"},
+		Reviews = {
+		},
+		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
+	},
+	{
+		Title = "BedwarsLobby Blatant Config",
+		Details = "for lobby duh vro",
+		Creator = "GamerFoxy",
+		Date = "2026-01-19",
+		LastUpdated = "2026-01-19",
+		SupportedGames = {"BedwarsLobby"},
+        SupportedGamesID = {6872265039},
+        ConfigID = "GMBedwarsLobbyBlatant",
+		Likes = 0,
+		Downloads = 0,
+		AffectedModules = {"CharacterOutlines","Shaders","AnimePictures","StaffDetector","AntiRagdoll","AutoCrate","NameTags","AutoRejoin","Headless","AntiAFK","Disabler","ChatTag","InfJump","Tracers","Arrows","Chams","Health","Sprint","ESP"},
+		Reviews = {
+		},
+		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
+	},
+	{
+		Title = "Bedwars Blatant Config OP",
+		Details = "skibidi destroy voidware users",
+		Creator = "GamerFoxy",
+		Date = "2026-01-19",
+		LastUpdated = "2026-01-19",
+		SupportedGames = {"Bedwars"},
+        SupportedGamesID = {6872274481, 8444591321, 8560631822, 16008862571},
+        ConfigID = "GMBedwarsBlatant",
+		Likes = 0,
+		Downloads = 0,
+		AffectedModules = {"Proximity Prompt Duration","DamageIndicatorChanger","TrainWhistleExploit","ProximityExtender","BlockCPSRemover","REDvsBLUE (wool)","CharacterOutlines","RemotesConnect","AdventureExploit","ShopTierBypass","ProjectileAimbot","ProjectileExploit","ZoomUnlocker","AutoKitBypass","Anime Pictures","SetPlayerLevel","AutoConsume","AutoVoidDrop","ProjectileAura","AutoSuffocate","MeatDetector","FastConsume","NoSlowdown","AC MOD View","PickupRange","StaffDetector","NoClickDelay","TrapDisabler","ArmorSwitch","TexturePack","GamingChair","AutoCounter","AutoBuildUp","BetterDavey","AutoBalloon","AutoCharge","StorageESP","AutoHotbar","AutoClicker","KeepSprint","NameTags","AutoShoot","ChestSteal","TriggerBot","AutoGloop","FastBreak","BedPlates","AntiNoClip","AutoShoot","AutoToxic","AimAssist","AutoPearl","AntiDeath","BedNotify","KillRender","Headless","AutoPlay","DesirePA","FastDrop","AutoTool","Interface","HitBoxes","AutoBuy","Anti-AFK","Kill Effect","AutoFire","CleanKit","ChatTag","Breaker","Velocity","BedESP","Tracers","Killaura","Arrows","AntiFall","Charms","Health","NoFall","KillESP","Reach","Sprint","Clutch","ESP"},
 		Reviews = {
 		},
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
