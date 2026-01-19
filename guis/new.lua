@@ -4978,7 +4978,7 @@ function mainapi:CreateCategoryList(categorysettings)
     local function notif(...) 
         return mainapi:CreateNotification(...) 
     end
-        PublicConfigsGui:Init(mainapi.gui.ScaledGui, notif, addvape)
+        PublicConfigsGui:Init(mainapi.gui.ScaledGui, notif, addvape,mainapi.GUIColor)
     end
 	end)
 	window.InputBegan:Connect(function(inputObj)
