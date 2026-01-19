@@ -52,7 +52,7 @@ return {
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
 	},
 	{
-		Title = "BedwarsLobby Blatant Config",
+		Title = "BedwarsLobby Blatant Config [for sentinel]",
 		Details = "for lobby duh vro",
 		Creator = "GamerFoxy",
 		Date = "2026-01-19",
@@ -68,7 +68,7 @@ return {
 		Code = {"https://github.com/AsuraXowner/SentinelVAPE/tree/main/Configs/data/GamerFoxy"} 
 	},
 	{
-		Title = "Bedwars Blatant Config OP",
+		Title = "Bedwars Blatant Config OP [for sentinel]",
 		Details = "skibidi destroy voidware users",
 		Creator = "GamerFoxy",
 		Date = "2026-01-19",
