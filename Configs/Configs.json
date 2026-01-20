@@ -10,7 +10,7 @@ return {
 		SupportedGames = {"Rivals"},
         SupportedGamesID = {"17625359962", "133215910299950", "129604661913557", "117398147513099", "71874690745115", "18126510175"},
         ConfigID = "LuaXRivals",
-		Likes = 2,
+		Likes = 3,
 		Downloads = 5,
 		AffectedModules = {"SilentAim","TriggerBot","Desync","FastEquip","HitBoxes","Hitmarker Disabler","Hurt Effect Disabler","Chams","DevBadge","ESP","NameTags","Tracers","DeviceSpoofer","NoCameraShake","StaffDetector","ActiveBypassV1","Anti-AFK","Anime Pictures","CharacterOutlines","ChatTag","HandCustomizer","Unlockall"},
 		Reviews = {
@@ -44,7 +44,7 @@ return {
 		SupportedGames = {"CounterBlox"},
         SupportedGamesID = {301549746, 1480424328, 1869597719, 5325113759},
         ConfigID = "GMCounterBloxBlatant",
-		Likes = 0,
+		Likes = 1,
 		Downloads = 2,
 		AffectedModules = {"DmgBoost","InfiniteAmmo","RapidFire","FullAuto","InstantEquip","InstantReload","NoSlowdown","NoSpread","SkinCustomizer","HandCustomizer","InfiniteMelee","Wallbang","MaxPenetration","KillAll", "AntiAim","Teleport","NoFallDamage","NoFireDamage","Buy","HitBoxes","RemoveEffects","ViewModel","ThirdPerson","FOV","KnifeGiver","KnifeBot","Bhop","BulletTrail","ShowEnemyMoney","Ragebot"},
 		Reviews = {
@@ -60,8 +60,8 @@ return {
 		SupportedGames = {"BedwarsLobby"},
         SupportedGamesID = {6872265039},
         ConfigID = "GMBedwarsLobbyBlatant",
-		Likes = 0,
-		Downloads = 0,
+		Likes = 1,
+		Downloads = 1,
 		AffectedModules = {"CharacterOutlines","Shaders","AnimePictures","StaffDetector","AntiRagdoll","AutoCrate","NameTags","AutoRejoin","Headless","AntiAFK","Disabler","ChatTag","InfJump","Tracers","Arrows","Chams","Health","Sprint","ESP"},
 		Reviews = {
 		},
