@@ -77,7 +77,7 @@ return {
         SupportedGamesID = {6872274481, 8444591321, 8560631822, 16008862571},
         ConfigID = "GMBedwarsBlatant",
 		Likes = 0,
-		Downloads = 0,
+		Downloads = 5,
 		AffectedModules = {"Proximity Prompt Duration","DamageIndicatorChanger","TrainWhistleExploit","ProximityExtender","BlockCPSRemover","REDvsBLUE (wool)","CharacterOutlines","RemotesConnect","AdventureExploit","ShopTierBypass","ProjectileAimbot","ProjectileExploit","ZoomUnlocker","AutoKitBypass","Anime Pictures","SetPlayerLevel","AutoConsume","AutoVoidDrop","ProjectileAura","AutoSuffocate","MeatDetector","FastConsume","NoSlowdown","AC MOD View","PickupRange","StaffDetector","NoClickDelay","TrapDisabler","ArmorSwitch","TexturePack","GamingChair","AutoCounter","AutoBuildUp","BetterDavey","AutoBalloon","AutoCharge","StorageESP","AutoHotbar","AutoClicker","KeepSprint","NameTags","AutoShoot","ChestSteal","TriggerBot","AutoGloop","FastBreak","BedPlates","AntiNoClip","AutoShoot","AutoToxic","AimAssist","AutoPearl","AntiDeath","BedNotify","KillRender","Headless","AutoPlay","DesirePA","FastDrop","AutoTool","Interface","HitBoxes","AutoBuy","Anti-AFK","Kill Effect","AutoFire","CleanKit","ChatTag","Breaker","Velocity","BedESP","Tracers","Killaura","Arrows","AntiFall","Charms","Health","NoFall","KillESP","Reach","Sprint","Clutch","ESP"},
 		Reviews = {
 		},
