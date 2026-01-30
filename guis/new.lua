@@ -5903,9 +5903,9 @@ general:CreateButton({
 		end
 		shared.vapereload = true
 		if shared.VapeDeveloper then
-			loadstring(readfile('sentinelvape/loader.lua'), 'loader')()
+			loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 		else
-		    loadstring(game:HttpGet('https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/'..readfile('sentinelvape/profiles/commit.txt')..'/loader.lua', true))()
+		    loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 		end
 	end,
 	Tooltip = 'This will set your profile to the default settings of Vape'
@@ -5922,9 +5922,9 @@ general:CreateButton({
 	Function = function()
 		shared.vapereload = true
 		if shared.VapeDeveloper then
-			loadstring(readfile('sentinelvape/loader.lua'), 'loader')()
+			loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 		else
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/AsuraXowner/SentinelVAPE/'..readfile('sentinelvape/profiles/commit.txt')..'/loader.lua', true))()
+			loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 		end
 	end,
 	Tooltip = 'Reloads vape for debugging purposes'
@@ -6030,9 +6030,9 @@ guipane:CreateDropdown({
 			writefile('sentinelvape/profiles/gui.txt', val)
 			shared.vapereload = true
 			if shared.VapeDeveloper then
-				loadstring(readfile('sentinelvape/loader.lua'), 'loader')()
+				loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 			else
-				loadstring(game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/'..readfile('sentinelvape/profiles/commit.txt')..'/loader.lua', true))()
+				loadstring(game:HttpGet("https://sentinel1.vercel.app/get/main.lua"))()
 			end
 		end
 	end,
